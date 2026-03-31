@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - SECRET_KEY=super-secret-dev-key-change-this
+      - DATABASE_URL=sqlite:///app.db
+    volumes:
+      - sqlite_data:/app/instance
+
+volumes:
+  sqlite_data:
